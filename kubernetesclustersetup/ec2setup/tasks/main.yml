@@ -1,0 +1,37 @@
+---
+# tasks file for ec2setup
+
+- name: "masternode"
+  ec2:
+          count: 1
+          image: "{{ amiimageid }}"
+          instance_type: t2.micro
+          region: "{{ region }}"
+          instance_tags:
+                  Name: masternode
+          group_id: "{{ securitygrpid }}"
+          key_name: "{{ key }}"
+          aws_access_key: "{{ access_key }}"
+          aws_secret_key: "{{ secret_key }}"
+          state: present
+          wait: yes
+
+- name: "worker node"
+  ec2:
+          count: "{{ no_of_workernode }}"
+          image: "{{ amiimageid }}"
+          instance_type: t2.micro
+          region: "ap-south-1"
+          instance_tags:
+             Name: worker
+          group_id: "{{ securitygrpid }}"
+          key_name: "{{ key }}"
+          state: present
+          aws_access_key: "{{ access_key }}"
+          aws_secret_key: "{{ secret_key }}"
+          state: present
+          wait: yes
+        
+
+
+

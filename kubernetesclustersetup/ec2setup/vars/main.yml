@@ -1,0 +1,9 @@
+---
+# vars file for ec2setup
+
+amiimageid: "ami-068d43a544160b7ef"
+region: "ap-south-1"
+securitygrpid: "sg-0ab4cfe08b481b440"
+key: "instancekey"
+no_of_workernode: 2
+
